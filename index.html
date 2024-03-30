@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directory Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exim 4.95 sources</h1>
+    <ul>
+        <?php
+        $dir = '.';
+        $files = scandir($dir);
+        foreach ($files as $file) {
+            if ($file != '.' && $file != '..' && !is_dir($file)) {
+                echo '<li><a href="' . $file . '">' . $file . '</a></li>';
+            }
+        }
+        ?>
+    </ul>
+</body>
+</html>
+
